@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research Team - Survey">
+    <title>Research Team - Survey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Professional Light Color System */
+            --primary: hsl(218, 90%, 50%);
+            --primary-light: hsl(218, 90%, 65%);
+            --primary-dark: hsl(218, 90%, 40%);
+            --secondary: hsl(210, 60%, 45%);
+            --accent: hsl(218, 95%, 55%);
+
+            /* Light Neutral Palette */
+            --gray-50: hsl(210, 20%, 98%);
+            --gray-100: hsl(210, 17%, 95%);
+            --gray-200: hsl(210, 16%, 93%);
+            --gray-300: hsl(210, 14%, 89%);
+            --gray-400: hsl(210, 12%, 78%);
+            --gray-500: hsl(210, 10%, 65%);
+            --gray-600: hsl(210, 12%, 50%);
+            --gray-700: hsl(210, 15%, 35%);
+            --gray-800: hsl(210, 18%, 25%);
+            --gray-900: hsl(210, 20%, 15%);
+
+            /* Semantic Light Colors */
+            --bg-primary: hsl(0, 0%, 100%);
+            --bg-secondary: hsl(210, 20%, 98%);
+            --bg-elevated: hsl(0, 0%, 100%);
+            --text-primary: hsl(210, 24%, 16%);
+            --text-secondary: hsl(210, 16%, 40%);
+            --text-tertiary: hsl(210, 12%, 55%);
+            --border-subtle: hsl(210, 18%, 92%);
+            --border-medium: hsl(210, 16%, 88%);
+            --border-strong: hsl(210, 18%, 82%);
+
+            /* Light Theme Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.06);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+            /* Spacing System */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --primary: hsl(218, 90%, 60%);
+            --primary-light: hsl(218, 90%, 70%);
+            --primary-dark: hsl(218, 90%, 50%);
+            --secondary: hsl(210, 20%, 70%);
+            --accent: hsl(218, 95%, 65%);
+
+            /* Dark Backgrounds */
+            --bg-primary: hsl(210, 18%, 11%);
+            --bg-secondary: hsl(210, 16%, 14%);
+            --bg-elevated: hsl(210, 15%, 16%);
+
+            /* Dark Text */
+            --text-primary: hsl(210, 20%, 98%);
+            --text-secondary: hsl(210, 12%, 75%);
+            --text-tertiary: hsl(210, 10%, 60%);
+
+            /* Dark Borders */
+            --border-subtle: hsla(210, 20%, 85%, 0.08);
+            --border-medium: hsla(210, 20%, 85%, 0.12);
+            --border-strong: hsla(210, 20%, 85%, 0.18);
+
+            /* Dark Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        /* Typography Scale */
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        /* Unified Header Styles */
+        .main-header {
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-medium);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Update Theme Toggle for Nav integration */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xs) var(--space-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            margin-left: var(--space-md);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+
+        .theme-icon {
+            font-size: 1rem;
+        }
+
+        /* Page Title/Hero styles */
+        .page-hero {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+        }
+
+
+        /* Form Styles */
+        .form-section {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-2xl);
+            margin: var(--space-2xl) 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: var(--space-md);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px hsla(218, 90%, 50%, 0.1);
+        }
+
+        button[type="submit"] {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: var(--space-3xl);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .checkbox-group label,
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-xs);
+            font-weight: 400;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        .checkbox-group input[type="checkbox"],
+        .radio-group input[type="radio"] {
+            margin-right: var(--space-sm);
+            width: 1.2em;
+            height: 1.2em;
+            accent-color: var(--primary);
+        }
+
+        .inline-input {
+            width: auto !important;
+            display: inline-block !important;
+            padding: var(--space-xs) var(--space-sm) !important;
+            margin-left: var(--space-xs);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-sm);
+        }
+
+        /* Likert Scale Styles */
+        .likert-container {
+            overflow-x: auto;
+            margin-bottom: var(--space-lg);
+        }
+
+        .likert-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+            /* Ensure it doesn't get too squashed on mobile */
+        }
+
+        .likert-table th,
+        .likert-table td {
+            padding: var(--space-sm);
+            text-align: center;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        .likert-table th:first-child,
+        .likert-table td:first-child {
+            text-align: left;
+            width: 40%;
+            font-weight: 500;
+        }
+
+        .likert-table th {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .likert-group-title {
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px hsla(218, 90%, 50%, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                ResearchTeam
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="survey.html" class="active">Survey</a>
+                <a href="guidance.html">Guidance</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌞</span>
+                    <span id="themeText">Light</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-hero">
+            <h1>Survey</h1>
+            <p class="subtitle">Research Team Questionnaire</p>
+            <div style="margin-top: var(--space-md);">
+                <a href="guidance.html" style="color: var(--primary); text-decoration: none; font-weight: 500;">View
+                    Guidance & Best Practices →</a>
+            </div>
+        </div>
+
+        <section class="form-section">
+            <!-- Placeholder for Introduction from Questionnaire.docx -->
+            <!-- 
+                TODO: Insert Introduction text from Questionnaire.docx here.
+                Example structure:
+                <h2>Introduction</h2>
+                <p>Text goes here...</p>
+            -->
+            <div style="margin-bottom: var(--space-xl);">
+                <p style="margin-bottom: var(--space-md);">
+                    This project aims to lay a foundation for AI-assisted secure code generation by considering the
+                    factors that contribute to security vulnerabilities in AI code and best practices for addressing
+                    them. Through a Literature Survey, we identified eleven factors that impact the security of
+                    AI-generated code and nine best practices to mitigate them. Moreover, mapped the identified factors
+                    to Common Weakness Enumerations to explain the underlying reasons for vulnerabilities in
+                    AI-generated code. Furthermore, the best practices are mapped to the National Institute of Standards
+                    and Technology, Artificial Intelligence Risk Management Framework, for generative AI and Secure
+                    Software Development Practices (SSDP) for Generative AI and Dual-Use Foundation Models actions,
+                    providing a systematic approach for implementing the identified best practices.
+                </p>
+                <p style="margin-bottom: var(--space-md);">
+                    This survey aims to gather practitioners' feedback on the developed mapping. We use Motorola
+                    Assessment Tool metrics for feedback, including ease of use, user satisfaction, and the structure of
+                    the mapping.
+                </p>
+                <p style="margin-bottom: var(--space-md);">
+                    All information gathered from the questionnaire is for research purposes only. Such information will
+                    be treated in the STRICTEST CONFIDENCE, and any publication from this study will present information
+                    in aggregate form such that individual organisations or individual respondents participating in the
+                    research cannot be identified. You can withdraw your participation at any time during this project.
+                    In addition, only the research team will have access to the data.
+                </p>
+                <p style="margin-bottom: var(--space-lg);">
+                    You can contact <strong>Sajid Anwer</strong> (<a href="mailto:s.anwer@psau.edu.sa"
+                        style="color: var(--primary); text-decoration: none;">s.anwer@psau.edu.sa</a>) if you have any
+                    concerns about the research. You
+                    are free to withdraw your participation from this research project at any time you wish and without
+                    giving a reason. We would appreciate your participation in this research.
+                </p>
+                <div style="font-weight: 500;">
+                    Sincerely,<br>
+                    <strong>Sajid Anwer</strong><br>
+                    Prince Sattam Bin Abdulaziz University,<br>
+                    Al-Kharj, Saudi Arabia
+                </div>
+            </div>
+
+            <h2>Practitioner's Details</h2>
+            <form id="surveyForm">
+                <div class="form-group">
+                    <label for="job-title">Position/ Job Title:</label>
+                    <input type="text" id="job-title" name="job_title" required
+                        placeholder="e.g. Senior Software Engineer">
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Experience in Years:</label>
+                    <select id="experience" name="experience" required>
+                        <option value="" disabled selected>--Select Experience--</option>
+                        <option value="0-2">0-2 Years</option>
+                        <option value="3-5">3-5 Years</option>
+                        <option value="7-8">7-8 Years</option>
+                        <option value=">8">Greater than 8 years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Company's country in which it is located?:</label>
+                    <select id="country" name="country" required>
+                        <option value="" disabled selected>--Select Country--</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value="Botswana">Botswana</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Brunei">Brunei</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Cabo Verde">Cabo Verde</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Chad">Chad</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo (Congo-Brazzaville)">Congo (Congo-Brazzaville)</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czechia (Czech Republic)">Czechia (Czech Republic)</option>
+                        <option value="Democratic Republic of the Congo">Democratic Republic of the Congo</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Djibouti">Djibouti</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Dominican Republic">Dominican Republic</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Eswatini (fmr. 'Swaziland')">Eswatini (fmr. 'Swaziland')</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Fiji">Fiji</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Grenada">Grenada</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guinea-Bissau">Guinea-Bissau</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Holy See">Holy See</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Iran">Iran</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Kiribati">Kiribati</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Marshall Islands">Marshall Islands</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Mauritius">Mauritius</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Micronesia">Micronesia</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Mongolia">Mongolia</option>
+                        <option value="Montenegro">Montenegro</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Myanmar (formerly Burma)">Myanmar (formerly Burma)</option>
+                        <option value="Namibia">Namibia</option>
+                        <option value="Nauru">Nauru</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="North Korea">North Korea</option>
+                        <option value="North Macedonia">North Macedonia</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Palau">Palau</option>
+                        <option value="Palestine State">Palestine State</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Papua New Guinea">Papua New Guinea</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                        <option value="Saint Lucia">Saint Lucia</option>
+                        <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Seychelles">Seychelles</option>
+                        <option value="Sierra Leone">Sierra Leone</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Solomon Islands">Solomon Islands</option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="South Sudan">South Sudan</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Syria">Syria</option>
+                        <option value="Tajikistan">Tajikistan</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tonga">Tonga</option>
+                        <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkmenistan">Turkmenistan</option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States of America">United States of America</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>What is primary business function of your company? (you may tick more than one
+                        option)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="business_function" value="In-house development"> In-house
+                            development</label>
+                        <label><input type="checkbox" name="business_function" value="Outsource development"> Outsource
+                            development</label>
+                        <label><input type="checkbox" id="bf_other_check" name="business_function" value="Other"> Other:
+                            <input type="text" name="business_function_other" class="inline-input"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What is the scope of your company? (Please tick as appropriate)</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="company_scope" value="National"> National</label>
+                        <label><input type="radio" name="company_scope" value="Multinational"> Multinational</label>
+                        <label><input type="radio" name="company_scope" value="Don't Know"> Don't Know</label>
+                        <label><input type="radio" id="scope_other_check" name="company_scope" value="Other"> Other:
+                            <input type="text" name="company_scope_other" class="inline-input"></label>
+                    </div>
+                </div>
+
+                <!-- Motorola Assessment Tool Section -->
+                <h2
+                    style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
+                    Motorola Assessment Tool</h2>
+                <p style="margin-bottom: var(--space-lg); color: var(--text-secondary);">
+                    The Motorola assessment tool was used to evaluate the effectiveness of an organization or
+                    individuals that use AI models to generate code based on given mapping. Please rate your agreement
+                    with the following statements.
+                </p>
+
+                <!-- Ease of Use -->
+                <h3 class="likert-group-title">Ease of Use</h3>
+                <div class="likert-container">
+                    <table class="likert-table">
+                        <thead>
+                            <tr>
+                                <th>Statement</th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Neutral</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. The representation of the mapping is simple.</td>
+                                <td><input type="radio" name="eou_1" value="1"></td>
+                                <td><input type="radio" name="eou_1" value="2"></td>
+                                <td><input type="radio" name="eou_1" value="3"></td>
+                                <td><input type="radio" name="eou_1" value="4"></td>
+                                <td><input type="radio" name="eou_1" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>2. Only a little knowledge is needed to understand the developed mapping.</td>
+                                <td><input type="radio" name="eou_2" value="1"></td>
+                                <td><input type="radio" name="eou_2" value="2"></td>
+                                <td><input type="radio" name="eou_2" value="3"></td>
+                                <td><input type="radio" name="eou_2" value="4"></td>
+                                <td><input type="radio" name="eou_2" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>3. It’s simple to understand the relation between the factors and CWEs.</td>
+                                <td><input type="radio" name="eou_3" value="1"></td>
+                                <td><input type="radio" name="eou_3" value="2"></td>
+                                <td><input type="radio" name="eou_3" value="3"></td>
+                                <td><input type="radio" name="eou_3" value="4"></td>
+                                <td><input type="radio" name="eou_3" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>4. It’s simple to understand the relation between the best practices and standards
+                                    actions.</td>
+                                <td><input type="radio" name="eou_4" value="1"></td>
+                                <td><input type="radio" name="eou_4" value="2"></td>
+                                <td><input type="radio" name="eou_4" value="3"></td>
+                                <td><input type="radio" name="eou_4" value="4"></td>
+                                <td><input type="radio" name="eou_4" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>5. It’s simple to understand the Motorola assessment technique.</td>
+                                <td><input type="radio" name="eou_5" value="1"></td>
+                                <td><input type="radio" name="eou_5" value="2"></td>
+                                <td><input type="radio" name="eou_5" value="3"></td>
+                                <td><input type="radio" name="eou_5" value="4"></td>
+                                <td><input type="radio" name="eou_5" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>6. It’s simple to apply this mapping for secure code generation using AI models.
+                                </td>
+                                <td><input type="radio" name="eou_6" value="1"></td>
+                                <td><input type="radio" name="eou_6" value="2"></td>
+                                <td><input type="radio" name="eou_6" value="3"></td>
+                                <td><input type="radio" name="eou_6" value="4"></td>
+                                <td><input type="radio" name="eou_6" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- User Satisfaction -->
+                <h3 class="likert-group-title">User Satisfaction</h3>
+                <div class="likert-container">
+                    <table class="likert-table">
+                        <thead>
+                            <tr>
+                                <th>Statement</th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Neutral</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. The developed mapping is generic in nature and could be implemented in any
+                                    organization that is using AI models for code generation.</td>
+                                <td><input type="radio" name="us_1" value="1"></td>
+                                <td><input type="radio" name="us_1" value="2"></td>
+                                <td><input type="radio" name="us_1" value="3"></td>
+                                <td><input type="radio" name="us_1" value="4"></td>
+                                <td><input type="radio" name="us_1" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>2. The mapping between factors and CWEs would help the firm understand the reasons
+                                    for vulnerabilities in AI-generated code.</td>
+                                <td><input type="radio" name="us_2" value="1"></td>
+                                <td><input type="radio" name="us_2" value="2"></td>
+                                <td><input type="radio" name="us_2" value="3"></td>
+                                <td><input type="radio" name="us_2" value="4"></td>
+                                <td><input type="radio" name="us_2" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>3. The mapping between best practices and standards actions would help to understand
+                                    how to implement particular practices and generate secure code using AI models.</td>
+                                <td><input type="radio" name="us_3" value="1"></td>
+                                <td><input type="radio" name="us_3" value="2"></td>
+                                <td><input type="radio" name="us_3" value="3"></td>
+                                <td><input type="radio" name="us_3" value="4"></td>
+                                <td><input type="radio" name="us_3" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>4. I would prefer to use this approach in my organization.</td>
+                                <td><input type="radio" name="us_4" value="1"></td>
+                                <td><input type="radio" name="us_4" value="2"></td>
+                                <td><input type="radio" name="us_4" value="3"></td>
+                                <td><input type="radio" name="us_4" value="4"></td>
+                                <td><input type="radio" name="us_4" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>5. I am confident that the developed mapping improves efficiency and system
+                                    security.</td>
+                                <td><input type="radio" name="us_5" value="1"></td>
+                                <td><input type="radio" name="us_5" value="2"></td>
+                                <td><input type="radio" name="us_5" value="3"></td>
+                                <td><input type="radio" name="us_5" value="4"></td>
+                                <td><input type="radio" name="us_5" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Structure -->
+                <h3 class="likert-group-title">Structure</h3>
+                <div class="likert-container">
+                    <table class="likert-table">
+                        <thead>
+                            <tr>
+                                <th>Statement</th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Neutral</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. The core components of this mapping are self-explanatory and do not need further
+                                    description.</td>
+                                <td><input type="radio" name="str_1" value="1"></td>
+                                <td><input type="radio" name="str_1" value="2"></td>
+                                <td><input type="radio" name="str_1" value="3"></td>
+                                <td><input type="radio" name="str_1" value="4"></td>
+                                <td><input type="radio" name="str_1" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>2. The mapping components are practical and could be used in any organization.</td>
+                                <td><input type="radio" name="str_2" value="1"></td>
+                                <td><input type="radio" name="str_2" value="2"></td>
+                                <td><input type="radio" name="str_2" value="3"></td>
+                                <td><input type="radio" name="str_2" value="4"></td>
+                                <td><input type="radio" name="str_2" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>3. The execution of the mapping would assist an organization to identify issues
+                                    relating to code generation using AI models.</td>
+                                <td><input type="radio" name="str_3" value="1"></td>
+                                <td><input type="radio" name="str_3" value="2"></td>
+                                <td><input type="radio" name="str_3" value="3"></td>
+                                <td><input type="radio" name="str_3" value="4"></td>
+                                <td><input type="radio" name="str_3" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>4. The factors classification into three categories is useful to understand the use
+                                    of AI models for secure code generation.</td>
+                                <td><input type="radio" name="str_4" value="1"></td>
+                                <td><input type="radio" name="str_4" value="2"></td>
+                                <td><input type="radio" name="str_4" value="3"></td>
+                                <td><input type="radio" name="str_4" value="4"></td>
+                                <td><input type="radio" name="str_4" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Open Ended Questions -->
+                <h3 class="likert-group-title">Additional Feedback</h3>
+
+                <div class="form-group">
+                    <label for="open_factors">Please list the factors and best practices that you think are important
+                        for secure code generation in addition to the above challenges identified from
+                        literature.</label>
+                    <textarea id="open_factors" name="open_factors" placeholder="Your answer..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="open_suggestions">Please provide suggestions/recommendations about this mapping (if
+                        any).</label>
+                    <textarea id="open_suggestions" name="open_suggestions" placeholder="Your answer..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="open_help">How much will it help practitioners using AI models in code
+                        generation?</label>
+                    <textarea id="open_help" name="open_help" placeholder="Your answer..."></textarea>
+                </div>
+
+                <button type="submit">Submit Survey</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Research Team | Software Security & AI Research</p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeButton(currentTheme);
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+
+        // Update button appearance
+        function updateThemeButton(theme) {
+            if (theme === 'dark') {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            } else {
+                themeIcon.textContent = '🌞';
+                themeText.textContent = 'Light';
+            }
+        }
+
+        // Form Submission Handler
+        document.getElementById('surveyForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            try {
+                const formData = new FormData(form);
+
+                // Convert FormData to URLSearchParams to send as x-www-form-urlencoded
+                // This ensures Flask's request.form parses it correctly without needing complex multipart headers
+                const searchParams = new URLSearchParams();
+                for (const pair of formData) {
+                    searchParams.append(pair[0], pair[1]);
+                }
+
+                const response = await fetch('http://localhost:5000/submit-survey', {
+                    method: 'POST',
+                    body: searchParams
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Survey submitted successfully! Thank you for your feedback.');
+                    form.reset();
+                    window.scrollTo(0, 0);
+                } else {
+                    alert('Error: ' + (result.error || 'Failed to submit survey'));
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.\nMake sure the server is running.');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    </script>
+</body>
+
+</html>

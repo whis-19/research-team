@@ -155,74 +155,88 @@
             color: var(--text-primary);
         }
 
-        /* Theme Toggle Button */
-        .theme-toggle {
-            position: fixed;
-            top: var(--space-lg);
-            right: var(--space-lg);
-            z-index: 1000;
+        /* Unified Header Styles */
+        .main-header {
             background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-medium);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Update Theme Toggle for Nav integration */
+        .theme-toggle {
+            background: transparent;
             border: 1px solid var(--border-medium);
             border-radius: var(--radius-xl);
-            padding: var(--space-sm) var(--space-md);
+            padding: var(--space-xs) var(--space-sm);
             cursor: pointer;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             gap: var(--space-xs);
             font-size: 0.875rem;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            margin-left: var(--space-md);
         }
 
         .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--border-strong);
-        }
-
-        .theme-toggle:active {
-            transform: translateY(0);
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--bg-secondary);
         }
 
         .theme-icon {
-            font-size: 1.125rem;
-            transition: transform 0.3s ease;
+            font-size: 1rem;
         }
 
-        .theme-toggle:hover .theme-icon {
-            transform: rotate(20deg);
-        }
-
-        /* Header Section */
-        header {
+        /* Page Title/Hero styles */
+        .page-hero {
             text-align: center;
-            padding: var(--space-3xl) 0 var(--space-2xl);
-            position: relative;
+            padding: var(--space-2xl) 0;
         }
 
-        .subtitle {
-            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-            color: var(--text-secondary);
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s backwards;
-        }
-
-        /* Abstract Section */
-        .abstract {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border-medium);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-2xl);
-            margin: var(--space-2xl) 0;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
         .abstract::before {
             content: '';
@@ -251,6 +265,30 @@
         }
 
         /* Team Section */
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-md);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            color: white !important;
+        }
+
+        .hero {
+            text-align: center;
+            padding: var(--space-3xl) 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         .team-section {
             margin: var(--space-3xl) 0;
         }
@@ -643,17 +681,28 @@
 </head>
 
 <body>
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon" id="themeIcon">🌞</span>
-        <span id="themeText">Light</span>
-    </button>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                ResearchTeam
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="survey.html">Survey</a>
+                <a href="guidance.html">Guidance</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌞</span>
+                    <span id="themeText">Light</span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
     <div class="container">
-        <header>
+        <div class="page-hero">
             <h1>Research Team</h1>
             <p class="subtitle">Advancing Software Security & AI Research</p>
-        </header>
+        </div>
 
         <!-- Abstract Section -->
         <section class="abstract">

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research Team - Guidance">
+    <title>Research Team - Guidance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Professional Light Color System */
+            --primary: hsl(218, 90%, 50%);
+            --primary-light: hsl(218, 90%, 65%);
+            --primary-dark: hsl(218, 90%, 40%);
+            --secondary: hsl(210, 60%, 45%);
+            --accent: hsl(218, 95%, 55%);
+
+            /* Light Neutral Palette */
+            --gray-50: hsl(210, 20%, 98%);
+            --gray-100: hsl(210, 17%, 95%);
+            --gray-200: hsl(210, 16%, 93%);
+            --gray-300: hsl(210, 14%, 89%);
+            --gray-400: hsl(210, 12%, 78%);
+            --gray-500: hsl(210, 10%, 65%);
+            --gray-600: hsl(210, 12%, 50%);
+            --gray-700: hsl(210, 15%, 35%);
+            --gray-800: hsl(210, 18%, 25%);
+            --gray-900: hsl(210, 20%, 15%);
+
+            /* Semantic Light Colors */
+            --bg-primary: hsl(0, 0%, 100%);
+            --bg-secondary: hsl(210, 20%, 98%);
+            --bg-elevated: hsl(0, 0%, 100%);
+            --text-primary: hsl(210, 24%, 16%);
+            --text-secondary: hsl(210, 16%, 40%);
+            --text-tertiary: hsl(210, 12%, 55%);
+            --border-subtle: hsl(210, 18%, 92%);
+            --border-medium: hsl(210, 16%, 88%);
+            --border-strong: hsl(210, 18%, 82%);
+
+            /* Light Theme Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.06);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+            /* Spacing System */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+        }
+
+        /* Dark Theme */
+        [data-theme="dark"] {
+            --primary: hsl(218, 90%, 60%);
+            --primary-light: hsl(218, 90%, 70%);
+            --primary-dark: hsl(218, 90%, 50%);
+            --secondary: hsl(210, 20%, 70%);
+            --accent: hsl(218, 95%, 65%);
+
+            /* Dark Backgrounds */
+            --bg-primary: hsl(210, 18%, 11%);
+            --bg-secondary: hsl(210, 16%, 14%);
+            --bg-elevated: hsl(210, 15%, 16%);
+
+            /* Dark Text */
+            --text-primary: hsl(210, 20%, 98%);
+            --text-secondary: hsl(210, 12%, 75%);
+            --text-tertiary: hsl(210, 10%, 60%);
+
+            /* Dark Borders */
+            --border-subtle: hsla(210, 20%, 85%, 0.08);
+            --border-medium: hsla(210, 20%, 85%, 0.12);
+            --border-strong: hsla(210, 20%, 85%, 0.18);
+
+            /* Dark Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+
+        /* Typography Scale */
+        h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+            animation: fadeInDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Unified Header Styles */
+        .main-header {
+            background: var(--bg-elevated);
+            border-bottom: 1px solid var(--border-medium);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Update Theme Toggle for Nav integration */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xs) var(--space-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            margin-left: var(--space-md);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--bg-secondary);
+        }
+
+        .theme-icon {
+            font-size: 1rem;
+        }
+
+        /* Page Title/Hero styles */
+        .page-hero {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+        }
+
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: var(--space-2xl);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--border-medium);
+            vertical-align: top;
+        }
+
+        th {
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: var(--space-xs);
+        }
+
+        /* Nav Button */
+        .nav-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-bottom: var(--space-lg);
+        }
+
+        .nav-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                ResearchTeam
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="survey.html">Survey</a>
+                <a href="guidance.html" class="active">Guidance</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌞</span>
+                    <span id="themeText">Light</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-hero">
+            <h1>Guidance & Best Practices</h1>
+            <p class="subtitle">Secure AI Code Generation Framework</p>
+        </div>
+
+        <a href="survey.html" class="nav-button">← Back to Survey</a>
+
+        <h2>Gen-AI Model Key Elements, Factors & CWE Types</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Model Key Elements</th>
+                        <th style="width: 30%;">Factors</th>
+                        <th style="width: 45%;">CWE Types</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3"><strong>Training Data & Preprocessing</strong></td>
+                        <td>Foundation Model Training Dataset</td>
+                        <td>
+                            <ul>
+                                <li>CWE-20 – Improper Input Validation</li>
+                                <li>CWE-79 – Cross-Site-Scripting (XSS)</li>
+                                <li>CWE-89 – SQL Injection</li>
+                                <li>CWE-99 – Resource Injection</li>
+                                <li>CWE-125 – Out-of-Bound Read</li>
+                                <li>CWE-221 – Information Loss or Omission</li>
+                                <li>CWE-223 – Omission of Security-relevant Information</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Data Poisoning</td>
+                        <td>
+                            <ul>
+                                <li>CWE-200 – Exposure of Sensitive Information</li>
+                                <li>CWE-377 – Insecure Temporary File</li>
+                                <li>CWE-912 – Hidden Functionality</li>
+                                <li>CWE-1069 – Insufficient Technical or Business Justification</li>
+                                <li>CWE-1289 – Improper Validation of Specified Functionality</li>
+                                <li>CWE-1309 – Reliance on Improperly Controlled Assumptions</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Use of obsolete security practices</td>
+                        <td>
+                            <ul>
+                                <li>CWE-319 – Transport Data Without Encryption</li>
+                                <li>CWE-327 – Use of Broken or Vulnerable Algorithm</li>
+                                <li>CWE-328 – Use of Weak Hash</li>
+                                <li>CWE-477 – Use of Obsolete Function</li>
+                                <li>CWE-757 – Algorithm Degrade</li>
+                                <li>CWE-798 – Use of Hardcoded Credentials</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!-- Execution & Inference -->
+                    <tr>
+                        <td rowspan="4"><strong>Execution & Inference</strong></td>
+                        <td>Prompt Injection</td>
+                        <td>
+                            <ul>
+                                <li>CWE-20 – Improper Input Validation</li>
+                                <li>CWE-74 – Improper Neutralization of Special Elements</li>
+                                <li>CWE-94 – Code Injection</li>
+                                <li>CWE-434 – Unrestricted Upload of File with Dangerous Type</li>
+                                <li>CWE-943 – Improper Neutralization of Data Query Logic</li>
+                                <li>CWE-285 – Improper Authorization</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Prompt Structure</td>
+                        <td>
+                            <ul>
+                                <li>CWE-172 – Ambiguous Instructions</li>
+                                <li>CWE-798 – Use of Hardcoded Credentials</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ignore worst-case execution of the Model</td>
+                        <td>
+                            <ul>
+                                <li>CWE-400 – Uncontrolled Resource Consumption</li>
+                                <li>CWE-703 – Improper Check or Handling of Exceptional Conditions</li>
+                                <li>CWE-770 – Allocation of Resources Without Limits or Throttling</li>
+                                <li>CWE-835 – Loop with Unreachable Exit Condition</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unsafe Dependencies</td>
+                        <td>
+                            <ul>
+                                <li>CWE-295 – Improper Certificate Validation</li>
+                                <li>CWE-350 – Typosquatting Attacks</li>
+                                <li>CWE-611 – Improper Restriction of External Entity Reference</li>
+                                <li>CWE-937 – Transitive Vulnerabilities</li>
+                                <li>CWE-1104 – Outdated/Unmaintained Libraries</li>
+                                <li>CWE-1357 – Reliance on Insufficiently Trustworthy Component</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <!-- Post-Processing and Evaluation -->
+                    <tr>
+                        <td rowspan="4"><strong>Post-Processing and Evaluation</strong></td>
+                        <td>Lack of Security Awareness</td>
+                        <td>
+                            <ul>
+                                <li>CWE-116 – Improper Encoding of Output</li>
+                                <li>CWE-200 – Information Exposure in Outputs</li>
+                                <li>CWE-250 – Execution with Unnecessary Privileges</li>
+                                <li>CWE-306 – Missing Authentication of Critical Function</li>
+                                <li>CWE-425 – Direct Request ('Forced Browsing')</li>
+                                <li>CWE-488 – Exposure of Data Element to Wrong Session</li>
+                                <li>CWE-502 – Deserialization of Untrusted Data</li>
+                                <li>CWE-522 – Insufficiently Protected Credentials</li>
+                                <li>CWE-798 – Use of Hardcoded Credentials</li>
+                                <li>CWE-918 – Unsafe API Recommendations</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sensitive Data disclosure</td>
+                        <td>
+                            <ul>
+                                <li>CWE-201 – APIs Exposing Sensitive Data</li>
+                                <li>CWE-209 – Over-Exposure in Error Messages</li>
+                                <li>CWE-215 – Metadata Leakage</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lack of Code Review</td>
+                        <td>
+                            <ul>
+                                <li>CWE-94 – Code Injection</li>
+                                <li>CWE-200 – Information Exposure in Outputs</li>
+                                <li>CWE-284 – Improper Access Control</li>
+                                <li>CWE-250 – Execution with Unnecessary Privileges</li>
+                                <li>CWE-778 – Insufficient Logging</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lack of Code Review before Use</td>
+                        <td>
+                            <ul>
+                                <li>CWE-116 – Improper Encoding of Output</li>
+                                <li>CWE-200 – Information Exposure in Outputs</li>
+                                <li>CWE-522 – Insufficiently Protected Credentials</li>
+                                <li>CWE-798 – Use of Hardcoded Credentials</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Table 9: Mapping between Best Practices and NIST AI RMF & SSDP-Gen-AI Actions</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Sr. No.</th>
+                        <th style="width: 20%;">Best practices</th>
+                        <th style="width: 70%;">NIST AI RMF & SP 800-218A Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Multiround fixing</td>
+                        <td>
+                            <p><strong>SP 800-218 (PO.3.2):</strong> Follow recommended security practices to deploy,
+                                operate, and maintain tools and toolchains. <br><em>Action:</em> Continuously monitor
+                                potential operational and security issues, including policy violations and anomalous
+                                behavior.</p>
+                            <br>
+                            <p><strong>SP 800-218 (PW.5.1):</strong> Follow all secure coding practices that are
+                                appropriate to the development languages and environment to meet the organization’s
+                                requirements. <br><em>Action:</em> Check for other vulnerabilities that are common to
+                                the development languages and environment.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MS-4.2-001):</strong> Conduct adversarial testing at a regular
+                                cadence to map and measure GAI risks, including tests to address attempts to deceive or
+                                manipulate the application of provenance techniques or other misuses. Identify
+                                vulnerabilities and understand potential misuse scenarios and unintended outputs.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MP-5.1-006):</strong> Profile threats and negative impacts arising
+                                from GAI systems interacting with, manipulating, or generating content, and outlining
+                                known and potential vulnerabilities and the likelihood of their occurrence.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Review code before use</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (MS-2.6-004):</strong> Review GAI system outputs for validity and
+                                safety: Review generated code to assess risks that may arise from unreliable downstream
+                                decision-making.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MG-2.2-001):</strong> Compare GAI system outputs against
+                                pre-defined organization risk tolerance, guidelines, and principles, and review and test
+                                AI-generated content against these guidelines.</p>
+                            <br>
+                            <p><strong>SP 800-218 (PO.4.1):</strong> Define criteria for software security checks and
+                                track throughout the SDLC. <br><em>Action:</em> Define key performance indicators
+                                (KPIs), key risk indicators (KRIs), vulnerability severity scores, and other measures
+                                for software security.</p>
+                            <br>
+                            <p><strong>SP 800-218 (PO.5.2):</strong> Secure and harden development endpoints to perform
+                                development-related tasks using a risk-based approach. <br><em>Action:</em> Configure
+                                security controls and other tools involved in securing and hardening development
+                                endpoints to generate artifacts for their activities.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Improve Security Awareness</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (GV-2.1-003):</strong> Establish processes to verify the AI Actors
+                                conducting GAI incident response tasks demonstrate and maintain the appropriate skills
+                                and training.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MP-4.1-006):</strong> Implement policies and practices defining how
+                                third-party intellectual property and training data will be used, stored, and protected.
+                            </p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MG-4.1-001):</strong> Collaborate with external researchers,
+                                industry experts, and community representatives to maintain awareness of emerging best
+                                practices and technologies in measuring and managing identified risks.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PO.2.2):</strong> Provide role-based training for all personnel with
+                                responsibilities that contribute to secure development. <br><em>Action:</em> Role-based
+                                training should include understanding cybersecurity vulnerabilities and threats to AI
+                                models and their possible mitigations.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PO.2.3):</strong> Obtain upper management commitment to secure
+                                development, and convey that commitment to all with development-related roles and
+                                responsibilities. <br><em>Action:</em> Leadership should commit to secure development
+                                practices involving AI models.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PW.1.1):</strong> Use forms of risk modeling – such as threat
+                                modeling, attack modeling, or attack surface mapping – to help assess the security risk
+                                for the software. <br><em>Action:</em> Incorporate relevant AI model-specific
+                                vulnerability and threat types in risk modeling.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Secure Model Training</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (GV-1.2-001):</strong> Establish transparency policies and processes
+                                for documenting the origin and history of training data...</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MP-4.1-004):</strong> Document training data curation policies...
+                            </p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MP-4.1-005):</strong> Establish policies for collection, retention,
+                                and minimum quality of data...</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MP-4.1-010):</strong> Conduct appropriate diligence on training
+                                data use...</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MG-2.2-002):</strong> Document training data sources to trace the
+                                origin and provenance of AI-generated content.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PS.1.1):</strong> Store all forms of code based on the principle of
+                                least privilege. <br><em>Action:</em> Follow the principle of least privilege to
+                                minimize direct access to AI models...</p>
+                            <br>
+                            <p><strong>SP 800-218A (PS.1.2):</strong> Protect all data from unauthorized access and
+                                modification. <br><em>Action:</em> Continuously monitor the confidentiality and
+                                integrity of data.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PS.1.3):</strong> Protect all model weights and configuration
+                                parameter data. <br><em>Action:</em> Specify and implement additional risk-proportionate
+                                cybersecurity practices.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PW.3.3):</strong> Include adversarial samples in the training and
+                                testing data. <br><em>Action:</em> Use a process to test the adversarial samples and put
+                                appropriate guardrails.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PS.3.2):</strong> Collect, safeguard, maintain, and share provenance
+                                data. <br><em>Action:</em> Track the provenance of an AI model and its components.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Prompt Validation</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (MS-2.7-007):</strong> Perform AI red-teaming to assess resilience
+                                against: Abuse, GAI attacks, ML attacks...</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (MP-5.2-002):</strong> Plan regular engagements with AI Actors
+                                responsible for inputs to GAI systems.</p>
+                            <br>
+                            <p><strong>SP 800-218A (RV.1.1):</strong> Gather information from software acquirers, users,
+                                and public sources on potential vulnerabilities. <br><em>Action:</em> Log, monitor, and
+                                analyze all inputs and outputs for AI models.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Apply AI use Policies</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (MP-4.1-003):</strong> Connect new GAI policies, procedures, and
+                                processes to existing governance activities.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (GV4.3-001):</strong> Establish policies for measuring the
+                                effectiveness of employed content provenance methodologies.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (GV-3.2-003):</strong> Define acceptable use policies for GAI
+                                interfaces, modalities, and human-AI configurations.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (GV-1.6-002):</strong> Define any inventory exemptions in
+                                organizational policies for GAI systems.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (GV-1.2-002):</strong> Establish policies to evaluate risk-relevant
+                                capabilities of GAI and robustness of safety measures.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PO.1.1):</strong> Identify and document all security requirements
+                                for the organization’s software development infrastructures. <br><em>Action:</em>
+                                Identify and select appropriate AI model architectures and training techniques.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Regular Update and patching</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (MG-2.3-001):</strong> Develop and update GAI system incident
+                                response and recovery plans.</p>
+                            <br>
+                            <p><strong>AI RMF 600-1 (GV-1.3-005):</strong> Maintain an updated hierarchy of identified
+                                and expected GAI risks.</p>
+                            <br>
+                            <p><strong>SP 800-218A (PO.3.2):</strong> Follow recommended security practices to deploy,
+                                operate, and maintain tools and toolchains. <br><em>Action:</em> Update, upgrade, or
+                                replace tools as needed.</p>
+                            <br>
+                            <p><strong>SP 800-218 (RV.3.2):</strong> Analyze the root causes over time to identify
+                                patterns. <br><em>Action:</em> Update manual processes to detect future instances of the
+                                root cause.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Explicitly specify security in prompt</td>
+                        <td>
+                            <p><strong>SP 800-218A (PW.5.1):</strong> Follow all secure coding practices.
+                                <br><em>Action:</em> Validate and encode all inputs to include AI technology-specific
+                                considerations.
+                            </p>
+                            <br>
+                            <p><strong>SP 800-218A (PW.8.2):</strong> Scope the testing, design the tests, perform the
+                                testing, and document the results. <br><em>Action:</em> Use fuzz testing tools to find
+                                issues with input handling.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Prompt Optimization</td>
+                        <td>
+                            <p><strong>AI RMF 600-1 (MP-3.4-003):</strong> Develop certification programs that test
+                                proficiency in managing GAI risks.</p>
+                            <br>
+                            <p><strong>SP 800-218 (PO.3.3):</strong> Configure tools to generate artifacts of their
+                                support of secure software development practices. <br><em>Action:</em> Use existing
+                                tooling to create an audit trail of the secure development-related actions.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Research Team | Software Security & AI Research</p>
+        </footer>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeButton(currentTheme);
+
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+
+        // Update button appearance
+        function updateThemeButton(theme) {
+            if (theme === 'dark') {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            } else {
+                themeIcon.textContent = '🌞';
+                themeText.textContent = 'Light';
+            }
+        }
+    </script>
+</body>
+
+</html>
