@@ -19,7 +19,7 @@ This project implements a survey platform for the Research Team, focusing on "Se
 
 1.  **Clone or Navigate to the project directory:**
     ```bash
-    cd r:\research-team
+    https://github.com/whis-19/research-team.git
     ```
 
 2.  **Install Dependencies:**
