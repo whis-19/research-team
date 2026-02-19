@@ -40,6 +40,8 @@
             --bg-primary: hsl(0, 0%, 100%);
             --bg-secondary: hsl(210, 20%, 98%);
             --bg-elevated: hsl(0, 0%, 100%);
+            --bg-card: hsl(0, 0%, 100%);
+            /* Added for modal/card components */
             --text-primary: hsl(210, 24%, 16%);
             --text-secondary: hsl(210, 16%, 40%);
             --text-tertiary: hsl(210, 12%, 55%);
@@ -83,6 +85,8 @@
             --bg-primary: hsl(210, 18%, 11%);
             --bg-secondary: hsl(210, 16%, 14%);
             --bg-elevated: hsl(210, 15%, 16%);
+            --bg-card: hsl(210, 15%, 16%);
+            /* Added for modal/card components */
 
             /* Dark Text */
             --text-primary: hsl(210, 20%, 98%);
@@ -421,6 +425,85 @@
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px hsla(218, 90%, 50%, 0.1);
+        }
+
+        /* ... existing styles ... */
+
+        /* Validation Styling */
+        input:invalid,
+        select:invalid,
+        textarea:invalid {
+            border-color: #dc3545;
+            /* Red border for invalid fields */
+        }
+
+        /* Custom Modal Styles */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black w/ opacity */
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--bg-card);
+            margin: auto;
+            padding: var(--space-xl);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal h2 {
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .modal p {
+            color: var(--text-primary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .modal-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .modal-btn:hover {
+            background-color: var(--primary-dark);
         }
     </style>
 </head>
@@ -976,6 +1059,15 @@
         </footer>
     </div>
 
+    <!-- Custom Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Submission Successful!</h2>
+            <p>Thank you for your valuable feedback. Your response has been recorded.</p>
+            <button id="closeModal" class="modal-btn">Close</button>
+        </div>
+    </div>
+
     <script>
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
@@ -1009,11 +1101,75 @@
             }
         }
 
+        // Custom Modal Logic
+        const modal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        if (closeModalBtn) {
+            closeModalBtn.onclick = function () {
+                modal.style.display = "none";
+            }
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
         // Form Submission Handler
-        document.getElementById('surveyForm').addEventListener('submit', async function (e) {
+        const surveyForm = document.getElementById('surveyForm');
+
+        // Disable default browser validation to handle specific scrolling behavior manually
+        surveyForm.setAttribute('novalidate', true);
+
+        surveyForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             const form = e.target;
+
+            // Custom Validation: Check required fields manually
+            const requiredElements = form.querySelectorAll('[required]');
+            let firstInvalid = null;
+
+            for (const el of requiredElements) {
+                // Check if empty
+                if (!el.value || el.value.trim() === '') {
+                    if (!firstInvalid) firstInvalid = el;
+                    el.style.borderColor = '#dc3545'; // Highlight error
+
+                    // Reset border on input
+                    el.addEventListener('input', function () {
+                        this.style.borderColor = '';
+                    }, { once: true });
+                }
+            }
+
+            if (!firstInvalid && !form.checkValidity()) {
+                const invalidEls = form.querySelectorAll(':invalid');
+                if (invalidEls.length > 0) {
+                    firstInvalid = invalidEls[0];
+                }
+            }
+
+            if (firstInvalid) {
+                // Manual calculation to force centering and avoid browser quirks
+                const rect = firstInvalid.getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const targetY = rect.top + scrollTop - (window.innerHeight / 2) + (rect.height / 2);
+
+                window.scrollTo({
+                    top: targetY,
+                    behavior: 'smooth'
+                });
+
+                // Focus after a delay to allow scroll to start, but prevent default scroll
+                setTimeout(() => {
+                    firstInvalid.focus({ preventScroll: true });
+                }, 500);
+                return; // Stop submission
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
 
@@ -1023,9 +1179,6 @@
 
             try {
                 const formData = new FormData(form);
-
-                // Convert FormData to URLSearchParams to send as x-www-form-urlencoded
-                // This ensures Flask's request.form parses it correctly without needing complex multipart headers
                 const searchParams = new URLSearchParams();
                 for (const pair of formData) {
                     searchParams.append(pair[0], pair[1]);
@@ -1039,7 +1192,11 @@
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert('Survey submitted successfully! Thank you for your feedback.');
+                    // Show Custom Modal
+                    if (modal) {
+                        modal.style.display = "flex";
+                    }
+
                     form.reset();
                     window.scrollTo(0, 0);
                 } else {
@@ -1055,6 +1212,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>
