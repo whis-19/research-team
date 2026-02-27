@@ -1,0 +1,407 @@
+This project aims to lay a foundation for AI-assisted secure code generation by considering the factors that contribute to security vulnerabilities in AI code and best practices for addressing them. Through a Literature Survey, we identified eleven factors that impact the security of AI-generated code and nine best practices to mitigate them. Moreover, mapped the identified factors to Common Weakness Enumerations to explain the underlying reasons for vulnerabilities in AI-generated code. Furthermore, the best practices are mapped to the National Institute of Standards and Technology, Artificial Intelligence Risk Management Framework, for generative AI and Secure Software Development Practices (SSDP) for Generative AI and Dual-Use Foundation Models actions, providing a systematic approach for implementing the identified best practices.
+This survey aims to gather practitioners' feedback on the developed mapping. We use Motorola Assessment Tool metrics for feedback, including ease of use, user satisfaction, and the structure of the mapping. 
+All information gathered from the questionnaire is for research purposes only. Such information will be treated in the STRICTEST CONFIDENCE
+,
+ and any publication from this study will present information in aggregate form such that individual 
+organisations
+ or individual respondents participating in the research cannot be identified. You can withdraw your participation at any time during this project. In addition, only the research team will have access to the data.
+You can contact 
+Sajid Anwer (s.anwer@psau.edu.sa)
+ if you have any concerns about the research. You are free to withdraw your participation from this research project at any time you wish and without giving a reason. We would appreciate your participation in this research.
+Sincerely,
+Sajid Anwer
+Prince 
+Sattam
+ Bin 
+Abdulaziz
+ University,
+Al-
+Kharj
+, Saudi Arabia
+For how long have you been using AI tools for code generation? 
+0-3
+4-5
+Greater than 5
+Section 1: Organization Details
+Does your organization have any 
+established 
+practices 
+or framework 
+for using AI models?
+Yes
+No
+Other
+Approximately how many staff are employed by your company? (Please tick as appropriate)
+ Less than 25
+ 26-199
+ Greater than 200
+ Not Sure
+Approximately how many staff are employed directly in the production/maintenance of software? (Please tick as appropriate)
+ Less than 25
+ 26-199
+ Greater than 200
+ Not sure
+What type of systems are your company concerned with? (You may tick more than one)
+Safety Critical
+Business Systems
+Telecommunications
+Real Time Systems
+Data Processing
+System Software
+Windows-based
+Embedded Systems
+Android Applications
+IOS Applications
+Other:
+Section 2: Evaluation of the Mapping between factors and CWEs. A detailed mapping table is available on this link [mention link here]
+Gen-AI Model Key Elements
+Factors
+CWE Types
+Training Data & Preprocessing
+Foundation Model 
+Training Dataset
+CWE-20 – Improper Input Validation
+CWE-79 – Cross-Site-Scripting (XSS)
+CWE-89 – SQL Injection
+CWE-99 – Resource Injection
+CWE-125 – Out-of-Bound Read
+CWE-221 – Information Loss or Omission
+CWE-223 – Omission of Security-relevant Information
+Data 
+Poisoning 
+CWE-200 – Exposure of Sensitive Information
+CWE-377 – Insecure Temporary File
+CWE-912 – Hidden Functionality
+CWE-1069 – Insufficient Technical or Business Justification
+CWE-1289 – Improper Validation of Specified Functionality
+CWE-1309 – Reliance on Improperly Controlled Assumptions
+Use of obsolete security practices
+CWE-319 – Transport Data Without Encryption
+CWE-327 – Use of Broken or Vulnerable Algorithm
+CWE-328 – Use of Weak Hash 
+CWE-477 – Use of Obsolete Function 
+CWE-757 – Algorithm Degrade
+CWE-798 – 
+Use of Hardcoded
+ Credentials
+Execution & Inference
+Prompt Injection
+CWE-20 – Improper Input Validation
+CWE-74 – Improper Neutralization of Special 
+Elements 
+CWE-94 – Code Injection
+CWE-434 – 
+Unrestricted Upload of File with Dangerous Type
+CWE-943 – Improper Neutralization of Data Query Logic
+CWE-285 – Improper Authorization
+Prompt Structure
+CWE-172 – Ambiguous Instructions
+CWE-798 – 
+Use of Hardcoded
+ Credentials
+Ignore 
+worst-
+case execution of the Model
+CWE-400 – Un
+controlled Resource Consumption
+CWE-703 – 
+Improper Check or Handling of Exceptional Conditions
+CWE-770 – Allocation of Resources Without Limits or Throttling
+CWE-835 – 
+Loop with Unreachable Exit Condition
+Unsafe Dependencies
+CWE-295 – 
+Improper Certificate Validation
+CWE-350 – 
+Typosquatting
+ Attacks (
+Reliance on Reverse DNS Resolution for a Security-Critical Action)
+CWE-611 – 
+Improper Restriction of External Entity Reference
+CWE-937 – Transitive Vulnerabilities 
+CWE-1104 – Outdated/Unmaintained Libraries 
+CWE-1357 – Reliance on 
+Insufficiently Trustworthy Component
+Post-Processing and Evaluation
+Lack of Security Awareness
+CWE-116 – Improper Encoding of Output
+CWE-200 – Information Exposure in Outputs
+CWE-250 – Execution with Unnecessary Privileges
+CWE-306 – Missing Authentication of Critical Function
+CWE-425 – 
+Direct Request ('Forced Browsing')
+CWE-488 – 
+Exposure of Data Element to Wrong Session
+CWE-502 – 
+Deserialization of Untrusted Data
+CWE-522 – 
+Insufficiently Protected Credentials
+CWE-798 – 
+Use of Hardcoded
+ Credentials
+CWE-918 – Unsafe API Recommendations
+Sensitive Data disclosure
+CWE-201 – APIs Exposing Sensitive Data
+CWE-209 – Over-Exposure in Error Messages
+CWE-215 – Metadata Leakage
+Lack of Code Review
+CWE-
+94
+ – 
+Code Injection
+CWE-200 – Information Exposure in Outputs
+CWE-2
+84
+ – 
+Improper Access Control
+CWE-250 – Execution with Unnecessary Privileges
+CWE-
+778
+ – 
+Insufficient Logging
+Lack of Code Review before Use
+CWE-116 – Improper Encoding of Output
+CWE-200 – Information Exposure in Outputs
+CWE-522 – 
+Insufficiently Protected Credentials
+CWE-798 – 
+Use of Hardcoded
+ Credentials
+Table 
+9
+: Mapping between Best Practices and NIST AI RMF & SSDP-Gen-AI Actions
+Sr. No.
+Best practices
+NIST AI RMF & SP 800-218A Actions
+1
+Multiround
+ fixing
+SP 800-218 (PO.3.2)
+: Follow recommended security practices to deploy, operate, and maintain tools and toolchains.
+Action:
+ Continuously monitor potential operational and security issues, including policy violations and anomalous behavior.
+SP 800-218 (PW.5.1)
+: Follow all secure coding practices that are appropriate to the development languages and environment to meet the organization’s requirements.
+Action:
+ Check for other vulnerabilities that are common to the development languages and environment.
+AI RMF 600-1 (
+MS-4.2-001):
+ Conduct adversarial testing at a regular cadence to map and measure GAI risks, including tests to address attempts to deceive or manipulate the application of provenance techniques or other misuses. Identify vulnerabilities and understand potential misuse scenarios and unintended outputs.
+AI RMF 600-1 (
+MP-5.1-006):
+ 
+Profile threats and negative impacts arising from GAI systems interacting with, manipulating, or generating content, and outlining known and potential vulnerabilities and the likelihood of their occurrence.
+2
+Review code before use
+AI RMF 600-1 (
+MS-2.6-004):
+ 
+Review GAI system outputs for validity and safety: Review generated code to assess risks that may arise from unreliable downstream decision-making.
+AI RMF 600-1 (MG-2.2-001): Compare GAI system outputs against pre-defined organization risk tolerance, guidelines, and principles, and review and test AI-generated content against these guidelines.
+SP 800-218 (
+PO.4.1):
+ Define criteria for software security checks and track throughout the SDLC. 
+Action:
+ Define key performance indicators (KPIs), key risk indicators (KRIs), vulnerability severity scores, and other measures for software security.
+SP 800-218 (PO.5.2)
+: Secure and harden development endpoints (i.e., endpoints for software designers, developers, testers, builders, etc.) to perform development-related tasks using a risk-based approach.
+Action:
+ Configure security controls and other tools involved in securing and hardening development endpoints to generate artifacts for their activities.
+3
+Improve Security Awareness
+AI RMF 600-1 (
+GV-2.1-003):
+ Establish processes to verify the AI Actors conducting GAI incident response tasks demonstrate and maintain the appropriate skills and training.
+AI RMF 600-1 (
+MP-4.1-006):
+ Implement policies and practices defining how third-party intellectual property and training data will be used, stored, and protected.
+AI RMF 600-1 (
+MG-4.1-001):
+ Collaborate with external researchers, industry experts, and community representatives to maintain awareness of emerging best practices and technologies in measuring and managing identified risks.
+SP 800-218A (PO.2.2)
+: Provide role-based training for all personnel with responsibilities that contribute to secure development. 
+Action:
+ Role-based training should include understanding cybersecurity vulnerabilities and threats to AI models and their possible mitigations. 
+SP 800-218A (PO.2.3)
+: Obtain upper management commitment to secure development, and convey that commitment to all with development-related roles and responsibilities. 
+Action:
+ 
+Leadership should commit to secure development practices involving AI models
+. 
+SP 800-218
+A
+ (PW.1.1)
+:
+ Use forms of risk modeling – such as threat modeling, attack modeling, or attack surface mapping – to help assess the security risk for the software. 
+Action:
+ Incorporate relevant AI model-specific vulnerability and threat types in risk modeling. 
+4
+Secure Model Training
+AI RMF 600-1 (
+GV-1.2-001):
+ Establish transparency policies and processes for documenting the origin and history of training data and generated data for GAI applications to advance digital content transparency, while balancing the proprietary nature of training approaches.
+AI RMF 600-1 (MP-4.1-004): Document training data curation policies, to the extent possible and according to applicable laws and policies.
+AI RMF 600-1 (MP-4.1-005): Establish policies for collection, retention, and minimum quality of data, in consideration of the following risks: Disclosure of inappropriate CBRN information; Use of Illegal or dangerous content; Offensive cyber capabilities; Training data imbalances that could give rise to harmful biases; Leak of personally identifiable information, including facial likenesses of individuals.
+AI RMF 600-1 (MP-4.1-010): Conduct appropriate diligence on training data use to assess intellectual property, and privacy, risks, including to examine whether use of proprietary or sensitive training data is consistent with applicable laws.
+AI RMF 600-1 (MG-2.2-002): Document training data sources to trace the origin and provenance of AI-generated content.
+SP 800-218
+A
+ (PS.1.1)
+:
+ 
+Store all forms of code – including source code, executable code, and configuration-as-code – based on the principle of least privilege so that only authorized personnel, tools, services, etc. have access. 
+Action:
+ Follow the principle of least privilege to minimize direct access to AI models and model elements regardless of where they are stored or executed. 
+SP 800-218
+A
+ (PS.1.2)
+:
+ Protect all training, testing, fine-tuning, and aligning data from unauthorized access and modification. 
+Action:
+ Continuously monitor the confidentiality (for non-public data only) and integrity of training, testing, fine-tuning, and aligning data. 
+SP 800-218
+A
+ (PS.1.3)
+: 
+Protect all model weights and configuration parameter data from unauthorized access and modification. 
+Action: 
+Specify and implement additional risk-proportionate cybersecurity practices around model weights, such as encryption, cryptographic hashes, digital signatures, multi-party authorization, and air-gapped environments. 
+SP 800-218
+A
+ (
+PW.3.3): 
+Include adversarial samples in the training and testing data to improve attack prevention. 
+Action:
+ 
+Use a process and corresponding controls to test the adversarial samples and put appropriate guardrails on training and testing use. 
+SP 800-218
+A
+ (PS.3.2)
+: Collect, safeguard, maintain, and share provenance data for all components of AI model through Supply-chain Levels for Software Artifacts
+. 
+Action:
+ Track the provenance of an AI model and its components and derivatives, including the training libraries, frameworks, and pipelines used to build the model. 
+5
+Prompt Validation
+AI RMF 600-1 (MS-2.7-007): Perform AI red-teaming to assess resilience against: Abuse to facilitate attacks on other systems (e.g., malicious code generation, enhanced phishing content), GAI attacks (e.g., prompt injection), ML attacks (e.g., adversarial examples/prompts, data poisoning, membership inference, model extraction, sponge examples).
+AI RMF 600-1 (MP-5.2-002): Plan regular engagements with AI Actors responsible for inputs to GAI systems, including third-party data and algorithms, to review and evaluate unanticipated impacts.
+SP 800-218A (RV.1.1)
+: Gather information from software acquirers, users, and public sources on potential vulnerabilities in the software and third-party components that the software uses, and investigate all credible reports.
+Action:
+ Log, monitor, and analyze all inputs and outputs for AI models to detect possible security and performance issues. 
+6
+Apply AI use Policies
+AI RMF 600-1 (
+MP-4.1-003):
+ Connect new GAI policies, procedures, and processes to existing model, data, software development, and IT governance and to legal, compliance, and risk management activities.
+ 
+security
+ awareness for AI teams."
+AI RMF 600-1 (
+GV4.3-001):
+ Establish policies for measuring the effectiveness of employed content provenance methodologies (e.g., cryptography, watermarking, steganography, etc.)
+AI RMF 600-1 (
+GV-3.2-003):
+ Define acceptable use policies for GAI interfaces, modalities, and human-AI configurations (i.e., for 
+chatbots
+ and decision-making tasks), including criteria for the kinds of queries GAI applications should refuse to respond to.  
+AI RMF 600-1 (
+GV-1.6-002):
+ Define any inventory exemptions in organizational policies for GAI systems embedded into application software.
+AI RMF 600-1 (
+GV-1.2-002):
+ Establish policies to evaluate risk-relevant capabilities of GAI and robustness of safety measures, both prior to deployment and on an ongoing basis, through internal and external evaluations.
+SP 800-218A (PO.1.1)
+: Identify and document all security requirements for the organization’s software development infrastructures and processes, and maintain the requirements over time. 
+Action:
+ Identify and select appropriate AI model architectures and training techniques in accordance with recommended practices for cybersecurity, privacy, and reproducibility. 
+7
+Regular Update and patching
+AI RMF 600-1 (MG-2.3-001): Develop and update GAI system incident response and recovery plans and procedures to address the following: Review and maintenance of policies and procedures to account for newly encountered uses and Verify response and recovery plans account for the GAI system value chain.
+AI RMF 600-1 (GV-1.3-005): Maintain an updated hierarchy of identified and expected GAI risks connected to contexts of GAI model advancement and use, potentially including specialized risk levels for GAI systems that address issues such as model collapse and algorithmic monoculture.
+SP 800-218A (
+PO.3.2):
+ Follow recommended security practices to deploy, operate, and maintain tools and toolchains. 
+Action:
+ Update, upgrade, or replace tools as needed to address AI tool vulnerabilities or add new tool capabilities.
+SP 800-218 (
+RV.3.2):
+ Analyze the root causes over time to identify patterns, such as a particular secure coding practice not being followed consistently.
+Action:
+ Update manual processes to detect future instances of the root cause.
+8
+Explicitly specify security in prompt
+SP 800-218A (
+PW.5.1):
+ Follow all secure coding practices that are appropriate to the development languages and environment to meet the organization’s requirements. 
+Action:
+ Validate and encode all inputs to include AI technology-specific considerations. 
+SP 800-218A (PW.8.2): 
+Scope the testing, design the tests, perform the testing, and document the results, including recording and triaging all discovered issues and recommended 
+remediation’s
+ in the development team’s workflow or issue tracking system. 
+Action:
+ Use fuzz testing tools to find issues with input handling.
+9
+Prompt Optimization
+AI RMF 600-1 (MP-3.4-003): Develop certification programs that test proficiency in managing GAI risks and interpreting content provenance, relevant to specific industry and context.
+SP 800-218 (
+PO.3.3):
+ Config
+ure tools to generate artifacts
+ of their support of secure software development practices as defined by the organization. 
+Action:
+ Use existing tooling (e.g., workflow tracking, issue tracking, value stream mapping) to create an audit trail of the secure development-related actions that are performed for continuous improvement purposes.
+Ease of use
+No.
+Statement
+1
+The visual representation and structure of the proposed model are clear and easy to follow.
+2
+It requires minimal prior training or knowledge to understand the proposed model
+.
+3
+The relationship between the identified security factors and their corresponding CWEs is straightforward and easy to understand
+.
+4
+ 
+It is easy to understand how the proposed best practices translate into specific, actionable standard actions.
+5
+Overall, it would be easy for a software practitioner to apply this approach when generating secure code with AI models.
+Table 
+13
+: Rubrics for User Satisfaction
+No.
+Statement
+1
+The proposed model is sufficiently adaptable to be implemented in various organizations using AI models for secure code generation.
+2
+The mapping between security factors and CWEs effectively helps development teams understand the root causes of vulnerabilities in AI-generated code.
+3
+The mapping between best practices and standard actions provides clear and actionable guidance for generating secure code using AI models.
+4
+I would recommend adopting this proposed approach within my own organization.
+5
+I am confident that utilizing this model would significantly improve both development efficiency and overall system security.
+Table 
+14
+: Rubrics for Overall Structure of the Proposed Model
+No.
+Statement
+1
+The logical flow and core components of this model are self-explanatory and logically sequenced.
+2
+The structural design of the model is practical for integration into existing real-world software development workflows
+3
+The step-by-step guidelines provide a systematic way to identify and address AI-generated code vulnerabilities.
+4
+Categorizing the security factors into distinct classifications provides a robust structural foundation for understanding AI code vulnerabilities.
+ Please list the 
+factors and best practices 
+that you think are important for 
+secure code generation 
+in addition to the above challenges identified from literature.
+Please provide suggestions/recommendations about this mapping (if any).
+How much 
+will this model
+ help practitioners using AI models in code generation?
