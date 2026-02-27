@@ -809,38 +809,151 @@
                 </div>
 
                 <div class="form-group">
-                    <label>What is primary business function of your company? (you may tick more than one
-                        option)</label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="business_function" value="In-house development"> In-house
-                            development</label>
-                        <label><input type="checkbox" name="business_function" value="Outsource development"> Outsource
-                            development</label>
-                        <label><input type="checkbox" id="bf_other_check" name="business_function" value="Other"> Other:
-                            <input type="text" name="business_function_other" class="inline-input"></label>
+                    <label for="ai-gen-exp">For how long have you been using AI tools for code generation?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ai_gen_exp" value="0-3" required> 0-3</label>
+                        <label><input type="radio" name="ai_gen_exp" value="4-5"> 4-5</label>
+                        <label><input type="radio" name="ai_gen_exp" value="Greater than 5"> Greater than 5</label>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
+                    Section 1: Organization Details</h2>
+                
+                <div class="form-group">
+                    <label>Does your organization have any established practices or framework for using AI models?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="org_practices" value="Yes" required> Yes</label>
+                        <label><input type="radio" name="org_practices" value="No"> No</label>
+                        <label><input type="radio" id="org_practices_other_check" name="org_practices" value="Other"> Other:
+                            <input type="text" name="org_practices_other" class="inline-input"></label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>What is the scope of your company? (Please tick as appropriate)</label>
+                    <label>Approximately how many staff are employed by your company? (Please tick as appropriate)</label>
                     <div class="radio-group">
-                        <label><input type="radio" name="company_scope" value="National"> National</label>
-                        <label><input type="radio" name="company_scope" value="Multinational"> Multinational</label>
-                        <label><input type="radio" name="company_scope" value="Don't Know"> Don't Know</label>
-                        <label><input type="radio" id="scope_other_check" name="company_scope" value="Other"> Other:
-                            <input type="text" name="company_scope_other" class="inline-input"></label>
+                        <label><input type="radio" name="company_staff" value="Less than 25" required> Less than 25</label>
+                        <label><input type="radio" name="company_staff" value="26-199"> 26-199</label>
+                        <label><input type="radio" name="company_staff" value="Greater than 200"> Greater than 200</label>
+                        <label><input type="radio" name="company_staff" value="Not Sure"> Not Sure</label>
                     </div>
                 </div>
 
-                <!-- Motorola Assessment Tool Section -->
-                <h2
-                    style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
-                    Motorola Assessment Tool</h2>
-                <p style="margin-bottom: var(--space-lg); color: var(--text-secondary);">
-                    The Motorola assessment tool was used to evaluate the effectiveness of an organization or
-                    individuals that use AI models to generate code based on given mapping. Please rate your agreement
-                    with the following statements.
-                </p>
+                <div class="form-group">
+                    <label>Approximately how many staff are employed directly in the production/maintenance of software? (Please tick as appropriate)</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="sw_staff" value="Less than 25" required> Less than 25</label>
+                        <label><input type="radio" name="sw_staff" value="26-199"> 26-199</label>
+                        <label><input type="radio" name="sw_staff" value="Greater than 200"> Greater than 200</label>
+                        <label><input type="radio" name="sw_staff" value="Not sure"> Not sure</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What type of systems are your company concerned with? (You may tick more than one)</label>
+                    <div class="checkbox-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xs);">
+                        <label><input type="checkbox" name="system_types" value="Safety Critical"> Safety Critical</label>
+                        <label><input type="checkbox" name="system_types" value="Business Systems"> Business Systems</label>
+                        <label><input type="checkbox" name="system_types" value="Telecommunications"> Telecommunications</label>
+                        <label><input type="checkbox" name="system_types" value="Real Time Systems"> Real Time Systems</label>
+                        <label><input type="checkbox" name="system_types" value="Data Processing"> Data Processing</label>
+                        <label><input type="checkbox" name="system_types" value="System Software"> System Software</label>
+                        <label><input type="checkbox" name="system_types" value="Windows-based"> Windows-based</label>
+                        <label><input type="checkbox" name="system_types" value="Embedded Systems"> Embedded Systems</label>
+                        <label><input type="checkbox" name="system_types" value="Android Applications"> Android Applications</label>
+                        <label><input type="checkbox" name="system_types" value="IOS Applications"> IOS Applications</label>
+                        <label style="grid-column: span 2;"><input type="checkbox" id="sys_types_other_check" name="system_types" value="Other"> Other:
+                            <input type="text" name="system_types_other" class="inline-input" style="width: 50% !important;"></label>
+                    </div>
+                </div>
+
+                                <!-- Section 2 -->
+                <h2 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
+                    Section 2: Evaluation of the Mapping between factors and CWEs</h2>
+                <div style="background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); margin-bottom: var(--space-lg); border: 1px solid var(--border-subtle);">
+                    <p style="margin-bottom: var(--space-sm);">We have mapped the identified security factors to Common Weakness Enumerations (CWEs) to explain the underlying reasons for vulnerabilities in AI-generated code.</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>The detailed mapping is provided here:</strong> <a href="guidance.html#factors-cwes" target="_blank" style="color: var(--primary); font-weight: 600;">Factors and CWEs Mapping</a></p>
+                    <p style="font-size: 0.9em; color: var(--text-tertiary);"><em>(Note: The model we developed based on the mapping is also available on that link).</em></p>
+                </div>
+                <p style="margin-bottom: var(--space-md);">Please evaluate the mapping on a scale of 1 to 4:</p>
+                <div class="likert-container">
+                    <table class="likert-table">
+                        <thead>
+                            <tr>
+                                <th>Statement</th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. The relationship between the identified security factors and their corresponding CWEs is straightforward and easy to understand.</td>
+                                <td><input type="radio" name="sec2_q1" value="1" required></td>
+                                <td><input type="radio" name="sec2_q1" value="2"></td>
+                                <td><input type="radio" name="sec2_q1" value="3"></td>
+                                <td><input type="radio" name="sec2_q1" value="4"></td>
+                            </tr>
+                            <tr>
+                                <td>2. The mapping between security factors and CWEs effectively helps development teams understand the root causes of vulnerabilities in AI-generated code.</td>
+                                <td><input type="radio" name="sec2_q2" value="1" required></td>
+                                <td><input type="radio" name="sec2_q2" value="2"></td>
+                                <td><input type="radio" name="sec2_q2" value="3"></td>
+                                <td><input type="radio" name="sec2_q2" value="4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Section 3 -->
+                <h2 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
+                    Section 3: Evaluation of the Mapping between Best Practices and Standards</h2>
+                <div style="background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); margin-bottom: var(--space-lg); border: 1px solid var(--border-subtle);">
+                    <p style="margin-bottom: var(--space-sm);">The best practices are mapped to the NIST AI Risk Management Framework and Secure Software Development Practices (SSDP) actions to provide a systematic approach for implementing them.</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>The detailed mapping is provided here:</strong> <a href="guidance.html#practices-standards" target="_blank" style="color: var(--primary); font-weight: 600;">Best Practices and Standards Mapping</a></p>
+                    <p style="font-size: 0.9em; color: var(--text-tertiary);"><em>(Note: The model we developed based on the mapping is also available on that link).</em></p>
+                </div>
+                <p style="margin-bottom: var(--space-md);">Please evaluate the mapping on a scale of 1 to 4:</p>
+                <div class="likert-container">
+                    <table class="likert-table">
+                        <thead>
+                            <tr>
+                                <th>Statement</th>
+                                <th>Strongly Disagree</th>
+                                <th>Disagree</th>
+                                <th>Agree</th>
+                                <th>Strongly Agree</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. It is easy to understand how the proposed best practices translate into specific, actionable standard actions.</td>
+                                <td><input type="radio" name="sec3_q1" value="1" required></td>
+                                <td><input type="radio" name="sec3_q1" value="2"></td>
+                                <td><input type="radio" name="sec3_q1" value="3"></td>
+                                <td><input type="radio" name="sec3_q1" value="4"></td>
+                            </tr>
+                            <tr>
+                                <td>2. The mapping between best practices and standard actions provides clear and actionable guidance for generating secure code using AI models.</td>
+                                <td><input type="radio" name="sec3_q2" value="1" required></td>
+                                <td><input type="radio" name="sec3_q2" value="2"></td>
+                                <td><input type="radio" name="sec3_q2" value="3"></td>
+                                <td><input type="radio" name="sec3_q2" value="4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Proposed Model Evaluation -->
+                <h2 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
+                    Evaluation of the Proposed Model</h2>
+                <div style="background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); margin-bottom: var(--space-lg); border: 1px solid var(--border-subtle);">
+                    <p style="margin-bottom: var(--space-sm);">Based on the mappings, we have developed a proposed model for secure software development.</p>
+                    <p style="margin-bottom: var(--space-sm);"><strong>The developed model is available here:</strong> <a href="guidance.html#proposed-model" target="_blank" style="color: var(--primary); font-weight: 600;">Proposed Model Diagrams</a></p>
+                </div>
+                <p style="margin-bottom: var(--space-md);">Using the Motorola Assessment Tool rubrics, please rate your agreement with the following statements on a scale of 1 to 4:</p>
 
                 <!-- Ease of Use -->
                 <h3 class="likert-group-title">Ease of Use</h3>
@@ -851,61 +964,31 @@
                                 <th>Statement</th>
                                 <th>Strongly Disagree</th>
                                 <th>Disagree</th>
-                                <th>Neutral</th>
                                 <th>Agree</th>
                                 <th>Strongly Agree</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1. The representation of the mapping is simple.</td>
-                                <td><input type="radio" name="eou_1" value="1"></td>
-                                <td><input type="radio" name="eou_1" value="2"></td>
-                                <td><input type="radio" name="eou_1" value="3"></td>
-                                <td><input type="radio" name="eou_1" value="4"></td>
-                                <td><input type="radio" name="eou_1" value="5"></td>
+                                <td>1. The visual representation and structure of the proposed model are clear and easy to follow.</td>
+                                <td><input type="radio" name="model_eou_1" value="1" required></td>
+                                <td><input type="radio" name="model_eou_1" value="2"></td>
+                                <td><input type="radio" name="model_eou_1" value="3"></td>
+                                <td><input type="radio" name="model_eou_1" value="4"></td>
                             </tr>
                             <tr>
-                                <td>2. Only a little knowledge is needed to understand the developed mapping.</td>
-                                <td><input type="radio" name="eou_2" value="1"></td>
-                                <td><input type="radio" name="eou_2" value="2"></td>
-                                <td><input type="radio" name="eou_2" value="3"></td>
-                                <td><input type="radio" name="eou_2" value="4"></td>
-                                <td><input type="radio" name="eou_2" value="5"></td>
+                                <td>2. It requires minimal prior training or knowledge to understand the proposed model.</td>
+                                <td><input type="radio" name="model_eou_2" value="1" required></td>
+                                <td><input type="radio" name="model_eou_2" value="2"></td>
+                                <td><input type="radio" name="model_eou_2" value="3"></td>
+                                <td><input type="radio" name="model_eou_2" value="4"></td>
                             </tr>
                             <tr>
-                                <td>3. It’s simple to understand the relation between the factors and CWEs.</td>
-                                <td><input type="radio" name="eou_3" value="1"></td>
-                                <td><input type="radio" name="eou_3" value="2"></td>
-                                <td><input type="radio" name="eou_3" value="3"></td>
-                                <td><input type="radio" name="eou_3" value="4"></td>
-                                <td><input type="radio" name="eou_3" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>4. It’s simple to understand the relation between the best practices and standards
-                                    actions.</td>
-                                <td><input type="radio" name="eou_4" value="1"></td>
-                                <td><input type="radio" name="eou_4" value="2"></td>
-                                <td><input type="radio" name="eou_4" value="3"></td>
-                                <td><input type="radio" name="eou_4" value="4"></td>
-                                <td><input type="radio" name="eou_4" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>5. It’s simple to understand the Motorola assessment technique.</td>
-                                <td><input type="radio" name="eou_5" value="1"></td>
-                                <td><input type="radio" name="eou_5" value="2"></td>
-                                <td><input type="radio" name="eou_5" value="3"></td>
-                                <td><input type="radio" name="eou_5" value="4"></td>
-                                <td><input type="radio" name="eou_5" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>6. It’s simple to apply this mapping for secure code generation using AI models.
-                                </td>
-                                <td><input type="radio" name="eou_6" value="1"></td>
-                                <td><input type="radio" name="eou_6" value="2"></td>
-                                <td><input type="radio" name="eou_6" value="3"></td>
-                                <td><input type="radio" name="eou_6" value="4"></td>
-                                <td><input type="radio" name="eou_6" value="5"></td>
+                                <td>3. Overall, it would be easy for a software practitioner to apply this approach when generating secure code with AI models.</td>
+                                <td><input type="radio" name="model_eou_3" value="1" required></td>
+                                <td><input type="radio" name="model_eou_3" value="2"></td>
+                                <td><input type="radio" name="model_eou_3" value="3"></td>
+                                <td><input type="radio" name="model_eou_3" value="4"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -920,55 +1003,31 @@
                                 <th>Statement</th>
                                 <th>Strongly Disagree</th>
                                 <th>Disagree</th>
-                                <th>Neutral</th>
                                 <th>Agree</th>
                                 <th>Strongly Agree</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1. The developed mapping is generic in nature and could be implemented in any
-                                    organization that is using AI models for code generation.</td>
-                                <td><input type="radio" name="us_1" value="1"></td>
-                                <td><input type="radio" name="us_1" value="2"></td>
-                                <td><input type="radio" name="us_1" value="3"></td>
-                                <td><input type="radio" name="us_1" value="4"></td>
-                                <td><input type="radio" name="us_1" value="5"></td>
+                                <td>1. The proposed model is sufficiently adaptable to be implemented in various organizations using AI models for secure code generation.</td>
+                                <td><input type="radio" name="model_us_1" value="1" required></td>
+                                <td><input type="radio" name="model_us_1" value="2"></td>
+                                <td><input type="radio" name="model_us_1" value="3"></td>
+                                <td><input type="radio" name="model_us_1" value="4"></td>
                             </tr>
                             <tr>
-                                <td>2. The mapping between factors and CWEs would help the firm understand the reasons
-                                    for vulnerabilities in AI-generated code.</td>
-                                <td><input type="radio" name="us_2" value="1"></td>
-                                <td><input type="radio" name="us_2" value="2"></td>
-                                <td><input type="radio" name="us_2" value="3"></td>
-                                <td><input type="radio" name="us_2" value="4"></td>
-                                <td><input type="radio" name="us_2" value="5"></td>
+                                <td>2. I would recommend adopting this proposed approach within my own organization.</td>
+                                <td><input type="radio" name="model_us_2" value="1" required></td>
+                                <td><input type="radio" name="model_us_2" value="2"></td>
+                                <td><input type="radio" name="model_us_2" value="3"></td>
+                                <td><input type="radio" name="model_us_2" value="4"></td>
                             </tr>
                             <tr>
-                                <td>3. The mapping between best practices and standards actions would help to understand
-                                    how to implement particular practices and generate secure code using AI models.</td>
-                                <td><input type="radio" name="us_3" value="1"></td>
-                                <td><input type="radio" name="us_3" value="2"></td>
-                                <td><input type="radio" name="us_3" value="3"></td>
-                                <td><input type="radio" name="us_3" value="4"></td>
-                                <td><input type="radio" name="us_3" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>4. I would prefer to use this approach in my organization.</td>
-                                <td><input type="radio" name="us_4" value="1"></td>
-                                <td><input type="radio" name="us_4" value="2"></td>
-                                <td><input type="radio" name="us_4" value="3"></td>
-                                <td><input type="radio" name="us_4" value="4"></td>
-                                <td><input type="radio" name="us_4" value="5"></td>
-                            </tr>
-                            <tr>
-                                <td>5. I am confident that the developed mapping improves efficiency and system
-                                    security.</td>
-                                <td><input type="radio" name="us_5" value="1"></td>
-                                <td><input type="radio" name="us_5" value="2"></td>
-                                <td><input type="radio" name="us_5" value="3"></td>
-                                <td><input type="radio" name="us_5" value="4"></td>
-                                <td><input type="radio" name="us_5" value="5"></td>
+                                <td>3. I am confident that utilizing this model would significantly improve both development efficiency and overall system security.</td>
+                                <td><input type="radio" name="model_us_3" value="1" required></td>
+                                <td><input type="radio" name="model_us_3" value="2"></td>
+                                <td><input type="radio" name="model_us_3" value="3"></td>
+                                <td><input type="radio" name="model_us_3" value="4"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -983,53 +1042,46 @@
                                 <th>Statement</th>
                                 <th>Strongly Disagree</th>
                                 <th>Disagree</th>
-                                <th>Neutral</th>
                                 <th>Agree</th>
                                 <th>Strongly Agree</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1. The core components of this mapping are self-explanatory and do not need further
-                                    description.</td>
-                                <td><input type="radio" name="str_1" value="1"></td>
-                                <td><input type="radio" name="str_1" value="2"></td>
-                                <td><input type="radio" name="str_1" value="3"></td>
-                                <td><input type="radio" name="str_1" value="4"></td>
-                                <td><input type="radio" name="str_1" value="5"></td>
+                                <td>1. The logical flow and core components of this model are self-explanatory and logically sequenced.</td>
+                                <td><input type="radio" name="model_str_1" value="1" required></td>
+                                <td><input type="radio" name="model_str_1" value="2"></td>
+                                <td><input type="radio" name="model_str_1" value="3"></td>
+                                <td><input type="radio" name="model_str_1" value="4"></td>
                             </tr>
                             <tr>
-                                <td>2. The mapping components are practical and could be used in any organization.</td>
-                                <td><input type="radio" name="str_2" value="1"></td>
-                                <td><input type="radio" name="str_2" value="2"></td>
-                                <td><input type="radio" name="str_2" value="3"></td>
-                                <td><input type="radio" name="str_2" value="4"></td>
-                                <td><input type="radio" name="str_2" value="5"></td>
+                                <td>2. The structural design of the model is practical for integration into existing real-world software development workflows.</td>
+                                <td><input type="radio" name="model_str_2" value="1" required></td>
+                                <td><input type="radio" name="model_str_2" value="2"></td>
+                                <td><input type="radio" name="model_str_2" value="3"></td>
+                                <td><input type="radio" name="model_str_2" value="4"></td>
                             </tr>
                             <tr>
-                                <td>3. The execution of the mapping would assist an organization to identify issues
-                                    relating to code generation using AI models.</td>
-                                <td><input type="radio" name="str_3" value="1"></td>
-                                <td><input type="radio" name="str_3" value="2"></td>
-                                <td><input type="radio" name="str_3" value="3"></td>
-                                <td><input type="radio" name="str_3" value="4"></td>
-                                <td><input type="radio" name="str_3" value="5"></td>
+                                <td>3. The step-by-step guidelines provide a systematic way to identify and address AI-generated code vulnerabilities.</td>
+                                <td><input type="radio" name="model_str_3" value="1" required></td>
+                                <td><input type="radio" name="model_str_3" value="2"></td>
+                                <td><input type="radio" name="model_str_3" value="3"></td>
+                                <td><input type="radio" name="model_str_3" value="4"></td>
                             </tr>
                             <tr>
-                                <td>4. The factors classification into three categories is useful to understand the use
-                                    of AI models for secure code generation.</td>
-                                <td><input type="radio" name="str_4" value="1"></td>
-                                <td><input type="radio" name="str_4" value="2"></td>
-                                <td><input type="radio" name="str_4" value="3"></td>
-                                <td><input type="radio" name="str_4" value="4"></td>
-                                <td><input type="radio" name="str_4" value="5"></td>
+                                <td>4. Categorizing the security factors into distinct classifications provides a robust structural foundation for understanding AI code vulnerabilities.</td>
+                                <td><input type="radio" name="model_str_4" value="1" required></td>
+                                <td><input type="radio" name="model_str_4" value="2"></td>
+                                <td><input type="radio" name="model_str_4" value="3"></td>
+                                <td><input type="radio" name="model_str_4" value="4"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Open Ended Questions -->
-                <h3 class="likert-group-title">Additional Feedback</h3>
+                <!-- Section 4: Open Ended Questions -->
+                <h2 style="margin-top: var(--space-2xl); margin-bottom: var(--space-lg); border-top: 1px solid var(--border-medium); padding-top: var(--space-xl);">
+                    Section 4: Additional Feedback</h2>
 
                 <div class="form-group">
                     <label for="open_factors">Please list the factors and best practices that you think are important
@@ -1045,7 +1097,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="open_help">How much will it help practitioners using AI models in code
+                    <label for="open_help">How much will this model help practitioners using AI models in code
                         generation?</label>
                     <textarea id="open_help" name="open_help" placeholder="Your answer..."></textarea>
                 </div>
