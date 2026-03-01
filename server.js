@@ -29,13 +29,13 @@ async function connectDB() {
         const client = new MongoClient(MONGO_URI, {
             tlsAllowInvalidCertificates: true
         });
-        
+
         await client.connect();
         console.log(`Connected to MongoDB: ${DB_NAME}.${COLLECTION_NAME}`);
-        
+
         db = client.db(DB_NAME);
         collection = db.collection(COLLECTION_NAME);
-        
+
         // Create index on submitted_at
         await collection.createIndex({ submitted_at: 1 });
         console.log("Index on 'submitted_at' verified/created.");
@@ -52,13 +52,13 @@ async function connectDB() {
 app.post('/submit-survey', async (req, res) => {
     try {
         const data = req.body;
-        
+
         // Add timestamp
         data.submitted_at = new Date();
 
         // Save to MongoDB
         const result = await collection.insertOne(data);
-        
+
         res.status(201).json({
             message: 'Survey submitted successfully!',
             id: result.insertedId
